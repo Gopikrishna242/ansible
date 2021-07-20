@@ -6,10 +6,10 @@
 
 - name: Download Frontend from Nexus
   get_url:
-    url: http://172.31.9.92:8081/repository/frontend/frontend-{{APP_VERSION}}.zip
-    dest: /tmp/frontend.zip
+    url: http://172.31.11.10:8081/repository/frontendd/frontendd-{{APP_VERSION}}.zip
+    dest: /tmp/frontendd.zip
     username: admin
-    password: admin
+    password: admin123
 
 - name: Delete the default content
   file:
@@ -22,13 +22,13 @@
 
 - name: Create HtDocs Directory
   file:
-    path: /var/www/html/frontend
+    path: /var/www/html/frontendd
     state: directory
 
 - name: Unzip the Downloaded Content
   unarchive:
-    src: /tmp/frontend.zip
-    dest: /var/www/html/frontend
+    src: /tmp/frontendd.zip
+    dest: /var/www/html/frontendd
     remote_src: yes
 
 - name: Update Todo Config file
